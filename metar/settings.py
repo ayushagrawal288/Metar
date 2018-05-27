@@ -25,12 +25,13 @@ SECRET_KEY = 'mnyw_=y+zc+b0*r6qh6ox1!97cy^2knxa4(i34aey_d6hxi703'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['metarapp.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'core',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
