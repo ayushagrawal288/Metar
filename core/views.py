@@ -27,7 +27,6 @@ def infoView(request):
         if not nocache:
             metar_data = REDIS_CACHE.get(scode)
             if metar_data:
-                print('from redis')
                 return HttpResponse(metar_data)
 
         base_url = 'http://tgftp.nws.noaa.gov/data/observations/metar/stations/' + scode + '.TXT'
@@ -48,7 +47,7 @@ def infoView(request):
 
         st = data[index]
         index += 1
-        if st =='AUTO':
+        if st == 'AUTO':
             dic.update({st: "autonomic wheather reporting"})
             st = data[index]
             if st == 'COR':

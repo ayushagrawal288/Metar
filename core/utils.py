@@ -1,4 +1,6 @@
 def qs_to_dict(data):
+    if data == '':
+        return dict()
     data = data.split('&')
     dic = dict()
     for item in data:
