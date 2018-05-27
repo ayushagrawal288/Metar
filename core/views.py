@@ -14,8 +14,6 @@ def pingView(request):
 
 def infoView(request):
     if request.method == 'GET':
-        # import pdb
-        # pdb.set_trace()
         params = qs_to_dict(request.META['QUERY_STRING'])
         scode = params.get('scode', '')
         nocache = int(params.get('nocache', 0))
@@ -34,6 +32,10 @@ def infoView(request):
 
         base_url = 'http://tgftp.nws.noaa.gov/data/observations/metar/stations/' + scode + '.TXT'
         response = requests.get(base_url)
+
+        if response.status_code != 200:
+            return HttpResponse(json.dumps({'message': "invalid scode value"}), status=400)
+
         data = response.content.decode('utf-8').split()[2:]
         index = 0
         dic = dict()
