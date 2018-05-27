@@ -17,7 +17,7 @@ Getting Started
 
 - Create a Python virtual environment.
 
-    virtualenv -p python3 venv
+    virtualenv -p python3 venv  
     source venv/bin/activate
 
 - Upgrade packaging tools.
